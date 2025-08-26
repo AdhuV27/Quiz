@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Uti {
     Scanner in = new Scanner(System.in);
     public double score = 0;
+    public double total = 0;
     public void create_mcq(String name, String op1, String op2, String op3, String op4, int CO) {
+        total += 1;
         System.out.println("Q: "+name + ": \n");
         System.out.println("Option 1: " + op1);
         System.out.println("Option 2: " + op2);
@@ -24,6 +26,7 @@ public class Uti {
     }
 
     public void create_fib(String q, String ans){
+        total += 2;
         System.out.println("Q: "+q);
         System.out.println("Enter answer: ");
         String ua = in.next();
@@ -46,10 +49,11 @@ public class Uti {
     }
 
     public void print_score(){
-        System.out.println(score);
+        System.out.println(score+"\n");
+        System.out.println(grade());
     }
-    public void grade(int total){
+    public String grade(){
         double marks = getScore();
-        System.out.println((marks ==total)? "Grade: A" : (marks < total && marks >total/2.0) ? "Grade: B": "Grade: C" );
+        return ((marks ==total)? "Grade: A" : (marks < total && marks >total/2.0) ? "Grade: B": "Grade: C" );
     }
 }
